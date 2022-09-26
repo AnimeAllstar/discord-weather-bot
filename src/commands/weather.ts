@@ -18,6 +18,10 @@ export const weatherCommand: DiscordBotSlashCommand = {
         // https://openweathermap.org/api/geocoding-api
         const geocodingResponse = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`);
         const json = await geocodingResponse.json();
+        if (json.length === 0) {
+            await interaction.reply(`No city found for ${city}`);
+            return;
+        }
         const { name, state, country, lat, lon } = json[0];
         // https://openweathermap.org/current
         const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&appid=${API_KEY}`);
