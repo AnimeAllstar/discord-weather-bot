@@ -19,11 +19,9 @@ Run `yarn install` to download dependencies
 - `yarn deploy-commands` will sync the commands you added to the bot
 - `yarn delete-commands` will remove all commands previously added
 
-## Adding a new command
+## Commands
 
-1. Create a command according to the `DiscordBotSlashCommand` [interface](https://github.com/kobili/discord-bot-starter/blob/main/src/commands/types.ts)
-2. Add the new command to the `commands` Collection found [here](https://github.com/kobili/discord-bot-starter/blob/main/src/commands/index.ts)
-3. Run the `deploy-commands` script to sync the new command to your bot
+- `/weather <city>`: Get the weather for a given city
 
 ## Credits
 
